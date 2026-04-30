@@ -83,7 +83,7 @@ body {
   transform: translate(-50%, -50%);
   color: #fff;
   font-family: "Garara", sans-serif;
-  font-size: 8vw;
+  font-size: 10vw;
   white-space: nowrap;
   pointer-events: none;
   mix-blend-mode: difference;
