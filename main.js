@@ -24,15 +24,6 @@ const trailContainer = document.getElementById("trail");
 let oraclePairs = [];
 let lastLabel = null;
 
-async function fetchMarketImages() {
-  const url = `${GAMMA_API}/markets?limit=45&order=volume24hr&ascending=false`;
-  const res = await fetch(url);
-  const markets = await res.json();
-  oraclePairs = markets.map((m, i) => ({
-    image:    ORACLE_IMAGES[i % ORACLE_IMAGES.length],
-    question: m.question,
-  }));
-}
 
 document.addEventListener("mousemove", (e) => {
   const pairs = oraclePairs.length ? oraclePairs : ORACLE_IMAGES.map(img => ({ image: img, question: "" }));
@@ -73,16 +64,23 @@ document.addEventListener("mousemove", (e) => {
 const GAMMA_API = "https://corsproxy.io/?url=https://gamma-api.polymarket.com";
 const DATA_API  = "https://data-api.polymarket.com";
 
-async function fetchTopMarket() {
-  const url = `${GAMMA_API}/markets?limit=1&order=volume24hr&ascending=false`;
+async function fetchMarkets() {
+  const url = `${GAMMA_API}/markets?limit=45&order=volume24hr&ascending=false`;
   const res = await fetch(url);
-  const [market] = await res.json();
+  const markets = await res.json();
+
+  oraclePairs = markets.map((m, i) => ({
+    image:    ORACLE_IMAGES[i % ORACLE_IMAGES.length],
+    question: m.question,
+  }));
+
+  const m = markets[0];
   return {
-    question:    market.question,
-    conditionId: market.conditionId,
-    outcomes:    JSON.parse(market.outcomes),
-    volume24hr:  market.volume24hr,
-    slug:        market.slug,
+    question:    m.question,
+    conditionId: m.conditionId,
+    outcomes:    JSON.parse(m.outcomes),
+    volume24hr:  m.volume24hr,
+    slug:        m.slug,
   };
 }
 
@@ -105,7 +103,7 @@ async function main() {
   const root = document.getElementById("root");
   try {
     root.textContent = "Fetching top market by 24hr volume…";
-    const [market] = await Promise.all([fetchTopMarket(), fetchMarketImages()]);
+    const market = await fetchMarkets();
 
     root.textContent = `Fetching trades for "${market.question}"…`;
     const trades = await fetchTrades(market.conditionId);
