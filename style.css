@@ -1,0 +1,94 @@
+#trail {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.trail-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.trail-img {
+  display: block;
+  max-width: 15vw;
+  max-height: 15vw;
+  width: auto;
+  height: auto;
+}
+
+.trail-label {
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 1.2vw;
+  color: #fff;
+  mix-blend-mode: difference;
+  white-space: normal;
+  line-height: 1.2;
+  max-width: 12vw;
+  pointer-events: none;
+}
+
+.trail-label--latest {
+  color: red;
+}
+
+@font-face {
+  font-family: "Garara";
+  src: url("Garara-trial.ttf") format("truetype");
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+#root {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.name-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0.2em;
+  color: red;
+}
+
+#tooltip {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "Garara", sans-serif;
+  font-size: 8vw;
+  white-space: nowrap;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 100;
+}
+
+
+

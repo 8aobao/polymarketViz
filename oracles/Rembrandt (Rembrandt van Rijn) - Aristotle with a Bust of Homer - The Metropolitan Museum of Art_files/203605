@@ -1,0 +1,28 @@
+
+(function () {
+    var scr = document.createElement('script');
+    var snippet = "var i = document.createElement('img');\
+    i.setAttribute('alt', '');\
+    i.setAttribute('height', '1');\
+    i.setAttribute('width', '1');\
+    i.setAttribute('style', 'display: none;');\
+    i.setAttribute('src', 'https://ad.doubleclick.net/ddm/activity/src=9331971;type=track0;cat=theme0;qty=1;cost=0;u1=;u16=;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;npa=;ord=UNKNOWN');\
+    document.body.appendChild(i);";
+
+    scr.type = 'text/javascript';
+    scr.async = true;
+    if (scr.textContent) {
+        scr.textContent = snippet;
+    } else {
+        scr.text = snippet;
+    }
+    document.getElementsByTagName('head')[0].appendChild(scr);
+})();
+(function () {
+!function (f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.agent='trplsojern';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1300365447663679');
+fbq('trackSingle','1300365447663679','PageView');
+fbq('trackSingleCustom','1300365447663679','Tracking',{"content_type":"hotel"});
+})();
+(function () {var t=document.createElement('img');t.async=!0,t.width=1,t.height=1,t.style.display='none',t.src='https://ib.adnxs.com/px?consent=1&id=1881703&t=1';document.body.appendChild(t)})();
+(function () {var t=document.createElement('img');t.async=!0,t.width=1,t.height=1,t.style.display='none',t.src='https://ib.adnxs.com/seg?add=39763393&consent=1&t=1';document.body.appendChild(t)})();
