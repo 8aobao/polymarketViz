@@ -1,4 +1,4 @@
-// IMAGE DRAG TRAIL
+// img dragging
 
 const ORACLE_IMAGES = [
   "oracles/DP-15583-020.jpg","oracles/DP-17777-001.jpg","oracles/DP-19531-098.jpg",
@@ -59,7 +59,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 
-// API CALLs + OTHER RELATED THINGS
+//api calls and other related things
 
 const GAMMA_API = "https://corsproxy.io/?url=https://gamma-api.polymarket.com";
 const DATA_API  = "https://data-api.polymarket.com";
@@ -118,7 +118,7 @@ async function main() {
 main();
 
 
-// NAMES
+// names
 
 let tradeVolMax = 1;
 
